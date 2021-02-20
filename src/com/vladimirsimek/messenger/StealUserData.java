@@ -63,20 +63,28 @@ public class StealUserData {
         try {
             BufferedReader br = new BufferedReader(new FileReader("data/sensitive-user-data.txt"));
             String line = br.readLine();
-            String everything = null;
+            StringBuilder everything = new StringBuilder();
 
 
             while (line != null) {
-                everything += line;
-                br.readLine();
+                everything.append(line);
+                line = br.readLine();
             }
             br.close();
 
-            String[] splitted = line.split(":");
+            String[] splitted = everything.toString().split(":");
+
+            for (int i = 0; i < splitted.length; i++) {
+                if (splitted[i].equals(name)) {
+                    if (password.equals(splitted[i + 2])) {
+                        System.out.println("Login successful!");
+                        return;
+                    }
+                }
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
