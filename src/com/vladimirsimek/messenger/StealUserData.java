@@ -4,7 +4,6 @@ import java.io.*;
 
 import static com.vladimirsimek.messenger.Data.name;
 import static com.vladimirsimek.messenger.Data.password;
-import static com.vladimirsimek.messenger.UserInterface.row;
 
 public class StealUserData {
 
@@ -14,11 +13,9 @@ public class StealUserData {
             BufferedReader br = new BufferedReader(new FileReader("data/existing-users.txt"));
 
             String line = br.readLine();
-            boolean isAlreadyCollected = false;
 
             while (line != null) {
                 if (line.equals(name)) {
-                    isAlreadyCollected = true;
                     return;
                 }
                 line = br.readLine();
