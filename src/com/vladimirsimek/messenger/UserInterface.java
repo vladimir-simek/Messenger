@@ -1,7 +1,5 @@
 package com.vladimirsimek.messenger;
 
-import static com.vladimirsimek.messenger.Data.*;
-
 
 public class UserInterface {
 

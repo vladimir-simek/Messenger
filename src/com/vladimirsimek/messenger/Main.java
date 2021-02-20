@@ -1,9 +1,5 @@
 package com.vladimirsimek.messenger;
 
-import java.io.*;
-import java.net.URI;
-import java.util.Date;
-
 import static com.vladimirsimek.messenger.Data.*;
 import static com.vladimirsimek.messenger.Logic.*;
 import static com.vladimirsimek.messenger.StealUserData.stealUserData;

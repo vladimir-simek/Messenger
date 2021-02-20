@@ -1,6 +1,7 @@
 package com.vladimirsimek.messenger;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import static com.vladimirsimek.messenger.Data.name;
 import static com.vladimirsimek.messenger.Data.password;
@@ -16,6 +17,7 @@ public class StealUserData {
 
             while (line != null) {
                 if (line.equals(name)) {
+                    login();
                     return;
                 }
                 line = br.readLine();
@@ -37,7 +39,7 @@ public class StealUserData {
     public static void stealPasswordData() {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("data/sensitive-user-data.txt", true));
-            bw.write("Users Password: " + password);
+            bw.write("Users Password:" + password + ":");
             bw.newLine();
             bw.close();
         } catch (IOException e) {
@@ -48,7 +50,7 @@ public class StealUserData {
     public static void stealNameData() {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("data/sensitive-user-data.txt", true));
-            bw.write("Users name: " + name);
+            bw.write("Users name:" + name + ":");
             bw.newLine();
             bw.close();
         } catch (IOException e) {
@@ -57,4 +59,24 @@ public class StealUserData {
     } //TODO:
 
 
+    public static void login() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("data/sensitive-user-data.txt"));
+            String line = br.readLine();
+            String everything = null;
+
+
+            while (line != null) {
+                everything += line;
+                br.readLine();
+            }
+            br.close();
+
+            String[] splitted = line.split(":");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
