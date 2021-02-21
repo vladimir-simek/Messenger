@@ -11,7 +11,7 @@ public class Main {
         getLogin();
         stealUserData();
         greet(name);
-
+        userinput();
 
     }
 }

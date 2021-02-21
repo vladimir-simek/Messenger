@@ -89,8 +89,6 @@ public class StealUserData {
                     System.out.println("Login successful!");
                 }
             }
-            System.out.println(row);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
