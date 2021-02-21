@@ -1,8 +1,6 @@
 package com.vladimirsimek.messenger;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Data {
@@ -10,6 +8,8 @@ public class Data {
     public static String password = "null";
     public static String rawInput = "null";
     public static String commandEND = "!konec";
+    public static String commandYES = "!yes";
+    public static String commandNO = "!no";
     public static ArrayList inbox = new ArrayList<String>();
 
     public static void toInbox(String rawInput) {
@@ -39,6 +39,24 @@ public class Data {
             bufferedWriter.close();
             bufferedWriter2.close();
             bufferedWriter3.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void showMSG() {
+        System.out.println("Incoming messages:");
+
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("data/inbox/inbox.txt"));
+            String line = bufferedReader.readLine();
+
+            while (line != null) {
+                System.out.println(line);
+                line = bufferedReader.readLine();
+            }
+
+            bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

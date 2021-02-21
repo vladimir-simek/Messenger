@@ -7,6 +7,7 @@ import java.util.Scanner;
 import static com.vladimirsimek.messenger.Data.name;
 import static com.vladimirsimek.messenger.Data.password;
 import static com.vladimirsimek.messenger.UserInterface.row;
+import static com.vladimirsimek.messenger.UserInterface.wrongCredentials;
 
 public class StealUserData {
 
@@ -77,12 +78,17 @@ public class StealUserData {
 
             String[] splitted = everything.toString().split(":");
 
+            int logins = 0;
             for (int i = 0; i < splitted.length; i++) {
                 if (splitted[i].equals(name)) {
                     if (password.equals(splitted[i + 2])) {
                         System.out.println("Login successful!");
                         return;
                     } else while (!password.equals(splitted[i+2])){
+                        logins++;
+                        if (logins == 5) {
+                            wrongCredentials();
+                        }
                         System.out.println("Wrong password! Try again.");
                         password = sc.nextLine();
                     }
