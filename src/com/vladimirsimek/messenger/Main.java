@@ -8,6 +8,7 @@ import static com.vladimirsimek.messenger.UserInterface.*;
 public class Main {
 
     public static void main(String[] args) {
+        prepareFiles();
         getLogin();
         stealUserData();
         greet(name);

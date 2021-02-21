@@ -19,9 +19,13 @@ public class Logic {
         Scanner sc = new Scanner(System.in);
         rawInput = sc.nextLine();
         while (!rawInput.equals(commandEND)){
-
+            toInbox(rawInput);
+            rawInput = sc.nextLine();
         }
+        pushInbox();
         dismissUser();
         System.exit(0);
     }
+
+
 }
