@@ -2,9 +2,11 @@ package com.vladimirsimek.messenger;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static com.vladimirsimek.messenger.Data.name;
 import static com.vladimirsimek.messenger.Data.password;
+import static com.vladimirsimek.messenger.UserInterface.row;
 
 public class StealUserData {
 
@@ -64,6 +66,7 @@ public class StealUserData {
             BufferedReader br = new BufferedReader(new FileReader("data/sensitive-user-data.txt"));
             String line = br.readLine();
             StringBuilder everything = new StringBuilder();
+            Scanner sc = new Scanner(System.in);
 
 
             while (line != null) {
@@ -79,9 +82,14 @@ public class StealUserData {
                     if (password.equals(splitted[i + 2])) {
                         System.out.println("Login successful!");
                         return;
+                    } else while (!password.equals(splitted[i+2])){
+                        System.out.println("Wrong password! Try again.");
+                        password = sc.nextLine();
                     }
+                    System.out.println("Login successful!");
                 }
             }
+            System.out.println(row);
 
         } catch (IOException e) {
             e.printStackTrace();
