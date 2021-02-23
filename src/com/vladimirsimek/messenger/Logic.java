@@ -50,27 +50,29 @@ public class Logic {
 
             String[] splitted = everything.toString().split(":");
 
-            int logins = 0;
             for (int i = 0; i < splitted.length; i++) {
                 if (splitted[i].equals(name)) {
-                    if (password.equals(splitted[i + 2])) {
-                        System.out.println("Login successful!");
-                        return;
-                    } else while (!password.equals(splitted[i+2])){
-                        logins++;
-                        if (logins == 5) {
-                            wrongCredentials();
+                    System.out.println("Write down your new password:");
+                    String newPass = sc.nextLine();
+
+                    splitted[i+2] = newPass;
+
+                    for (int j = 0; j < splitted.length; j++) {
+                        bw.write(splitted[j]+ ":");
+                        if (j % 2 == 0) {
+                            bw.newLine();
                         }
-                        System.out.println("Wrong password! Try again.");
-                        password = sc.nextLine();
                     }
-                    System.out.println("Login successful!");
+                    bw.close();
+                    System.out.println("Password changed successfully. Please restart the application.");
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 
 
 }

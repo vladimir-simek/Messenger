@@ -24,6 +24,7 @@ public class UserInterface {
         System.out.println("We are glad that we could steal your data!");
         System.out.println("Goodbye.");
         System.out.println(row);
+        System.exit(0);
     }
 
     public static void wrongCredentials() {
@@ -31,14 +32,21 @@ public class UserInterface {
         System.out.println(row);
         System.out.println("You tried so many times!");
         System.out.println("Do you wish to reset your password?");
-        String rawInput = sc.nextLine();
-        while (!rawInput.equals(commandYES) || !rawInput.equals(commandNO)) {
-            rawInput = sc.nextLine();
+
+        int isVladi = 0;
+
+        while (isVladi == 0) {
+            String rawInput = sc.nextLine();
+            if (rawInput.equals(commandNO)){
+                isVladi = 1;
+                dismissUser();
+            }else {
+                isVladi = 1;
+                resetPassword();
+
+            }
         }
-        if (rawInput.equals(commandNO)){
-            dismissUser();
-        }else {
-            resetPassword();
-        }
+
+
     }
 }
