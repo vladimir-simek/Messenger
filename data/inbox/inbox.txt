@@ -6,7 +6,15 @@ Julie: pafsmoamsf
 Julie: fsapfpamf
 Julie: fasfmapsfm
 Vladimir: ok
+<<<<<<< HEAD
 Julie: cool
 Julie: jsi tu
 Vladimir: ne
 Julie: wtf
+=======
+Vladimir: Nice
+Vladimir: !end
+Vladimir: !end
+Vladimir: !
+Julie: ahoj
+>>>>>>> 4077f6574e7dce766a214e406a2947a79ae39772
