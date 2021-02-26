@@ -60,6 +60,8 @@ public class Data {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("--------------------------");
+        System.out.println("Write you messages:");
     }
 
 }

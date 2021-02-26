@@ -3,7 +3,8 @@ package com.vladimirsimek.messenger;
 import static com.vladimirsimek.messenger.Data.*;
 import static com.vladimirsimek.messenger.StealUserData.stealPasswordData;
 import static com.vladimirsimek.messenger.StealUserData.stealUserData;
-import static com.vladimirsimek.messenger.UserInterface.*;
+import static com.vladimirsimek.messenger.UserInterface.dismissUser;
+import static com.vladimirsimek.messenger.UserInterface.row;
 
 import java.io.*;
 import java.util.Scanner;
@@ -35,7 +36,6 @@ public class Logic {
         System.out.println(row);
         System.out.println("Write down your new password:");
         password = sc.nextLine();
-<<<<<<< HEAD
         dismissUser();
         System.out.println("Restart app to complete password reset!");
         resetPasswordFinal();
@@ -46,12 +46,6 @@ public class Logic {
     public static void resetPasswordFinal() {
         try {
             BufferedReader br = new BufferedReader(new FileReader("data/sensitive-user-data.txt"));
-=======
-        stealUserData();
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("data/sensitive-user-data.txt"));
-            BufferedWriter bw = new BufferedWriter(new FileWriter("data/sensitive-user-data.txt"));
->>>>>>> 4077f6574e7dce766a214e406a2947a79ae39772
             String line = br.readLine();
             StringBuilder everything = new StringBuilder();
 
@@ -59,7 +53,6 @@ public class Logic {
                 everything.append(line);
                 line = br.readLine();
             }
-<<<<<<< HEAD
 
             br.close();
             String[] splitted = everything.toString().split(":");
@@ -80,35 +73,10 @@ public class Logic {
             }
             bufferedWriter.close();
 
-=======
-            br.close();
-
-            String[] splitted = everything.toString().split(":");
-
-            for (int i = 0; i < splitted.length; i++) {
-                if (splitted[i].equals(name)) {
-                    System.out.println("Write down your new password:");
-                    String newPass = sc.nextLine();
-
-                    splitted[i+2] = newPass;
-
-                    for (int j = 0; j < splitted.length; j++) {
-                        bw.write(splitted[j]+ ":");
-                        if (j % 2 == 0) {
-                            bw.newLine();
-                        }
-                    }
-                    bw.close();
-                    System.out.println("Password changed successfully. Please restart the application.");
-                }
-            }
->>>>>>> 4077f6574e7dce766a214e406a2947a79ae39772
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-
 
 
 }
