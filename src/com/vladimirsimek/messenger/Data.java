@@ -7,7 +7,7 @@ public class Data {
     public static String name = "null";
     public static String password = "null";
     public static String rawInput = "null";
-    public static String commandEND = "!konec";
+    public static String commandEND = "!end";
     public static String commandYES = "!yes";
     public static String commandNO = "!no";
     public static ArrayList inbox = new ArrayList<String>();

@@ -62,6 +62,13 @@ public class StealUserData {
     } //TODO:
 
 
+
+
+    public static boolean yes = false;
+
+
+
+
     public static void login() {
         try {
             BufferedReader br = new BufferedReader(new FileReader("data/sensitive-user-data.txt"));
@@ -81,18 +88,25 @@ public class StealUserData {
             int logins = 0;
             for (int i = 0; i < splitted.length; i++) {
                 if (splitted[i].equals(name)) {
-                    if (password.equals(splitted[i + 2])) {
-                        System.out.println("Login successful!");
-                        return;
-                    } else while (!password.equals(splitted[i+2])){
-                        logins++;
-                        if (logins == 5) {
-                            wrongCredentials();
+
+                        if (password.equals(splitted[i + 2])) {
+                            System.out.println("Login successful!");
+                            return;
+                        } else while (!password.equals(splitted[i + 2])) {
+                            logins++;
+                            if (logins == 5) {
+                                yes = true;
+                                wrongCredentials();
+                                return;
+                            }
+                            if (!yes) {
+                                System.out.println("Wrong password! Try again.");
+                                password = sc.nextLine();
+                            }
+
                         }
-                        System.out.println("Wrong password! Try again.");
-                        password = sc.nextLine();
-                    }
-                    System.out.println("Login successful!");
+                        System.out.println("Login successful!");
+
                 }
             }
         } catch (IOException e) {

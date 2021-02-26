@@ -14,6 +14,5 @@ public class Main {
         greet(name);
         showMSG();
         userinput();
-
     }
 }

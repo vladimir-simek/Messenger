@@ -29,14 +29,15 @@ public class UserInterface {
     public static void wrongCredentials() {
         Scanner sc = new Scanner(System.in);
         System.out.println(row);
-        System.out.println("You tried so many times!");
+        System.out.println("You tried too many times!");
         System.out.println("Do you wish to reset your password?");
         String rawInput = sc.nextLine();
-        while (!rawInput.equals(commandYES) || !rawInput.equals(commandNO)) {
+        while (!rawInput.equals(commandYES) && !rawInput.equals(commandNO)) {
             rawInput = sc.nextLine();
         }
         if (rawInput.equals(commandNO)){
             dismissUser();
+            System.exit(0);
         }else {
             resetPassword();
         }
